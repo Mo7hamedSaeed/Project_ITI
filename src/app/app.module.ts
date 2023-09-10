@@ -22,6 +22,7 @@ import { TvComponent } from './TV/tv/tv.component';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 
 
@@ -37,6 +38,7 @@ import { FooterComponent } from './footer/footer.component';
     TvComponent,
     NavbarComponent,
     FooterComponent,
+    NotfoundComponent,
   ],
   imports: [
     BrowserModule,

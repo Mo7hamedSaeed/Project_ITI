@@ -5,6 +5,7 @@ import { MovieDetailsComponent } from './Movie/movie-details/movie-details.compo
 import { TvComponent } from './TV/tv/tv.component';
 import { TvDetailsComponent } from './TV/tv-details/tv-details.component';
 import { HomeComponent } from './home/home.component';
+import { NotfoundComponent } from './notfound/notfound.component';
 
 const routes: Routes =
 [
@@ -12,7 +13,8 @@ const routes: Routes =
   {path:'movie',component:MovieComponent},
   {path:'movie/:id',component:MovieDetailsComponent},
   {path:'tv',component:TvComponent},
-  {path:'tv/:id',component:TvDetailsComponent}
+  {path:'tv/:id',component:TvDetailsComponent},
+  {path:'**',component:NotfoundComponent},
 ];
 
 @NgModule({

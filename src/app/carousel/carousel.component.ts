@@ -11,6 +11,7 @@ export class CarouselComponent {
   @Input() title!: String;
   @Input() items!: any[];
   @Input() genresLists!: any[];
+  @Input() route!: string;
 
 }
 

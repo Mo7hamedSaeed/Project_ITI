@@ -19,9 +19,9 @@
 </div>
 
 <div *ngIf="valueComponent">
-  <app-carousel title="Trending Movies" [items]="trendingMovie" ></app-carousel>
-  <app-carousel title="Trending Tv" [items]="trendingTv"></app-carousel>
-  <app-carousel title="Top Rated Movies" [items]="topRatedMovies"></app-carousel>
+  <app-carousel title="Trending Movies" [items]="trendingMovie" route="/movie/"></app-carousel>
+  <app-carousel title="Trending Tv" [items]="trendingTv" route="/tv/"></app-carousel>
+  <app-carousel title="Top Rated Movies" [items]="topRatedMovies" route="/movie/"></app-carousel>
 </div>
 
 <div *ngIf="!valueComponent">

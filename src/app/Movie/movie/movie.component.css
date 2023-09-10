@@ -1,5 +1,17 @@
-.center-container {
-  display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
+.card
+{
+  background-color:  #0704627b;
+}
+
+.card-title
+{
+  color: aliceblue;
+}
+.card-img-top{
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card-img-top:hover {
+  transform: scale(1.1); /* Adjust the scale factor for your desired effect */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }

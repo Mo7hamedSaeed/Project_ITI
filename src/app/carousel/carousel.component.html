@@ -12,14 +12,14 @@
     >
       <swiper-slide *ngFor="let item of items">
         <div class="carouselItem">
-          <a [routerLink]="">
+          <a [routerLink]="route + item.id">
             <div class="card">
               <div class="poster-block">
-                <a [routerLink]="'/movie/' + item.id"><img
+                <img
                   src="{{ imagePath + item.poster_path }}"
                   class="card-img-top"
                   alt="..."
-                /></a>
+                />
                 <div class="circle-rating">
                   <span>{{ item.vote_average.toFixed(1) }}</span>
                 </div>
