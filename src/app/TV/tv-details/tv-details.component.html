@@ -1,0 +1,67 @@
+<div class="center-container">
+  <div class="container">
+    <!-- Display TV Details -->
+    <div class="display" *ngIf="tvDetailResult.poster_path">
+      <img src="{{imagePath + tvDetailResult.poster_path }}">
+
+      <!-- Display more TV Details -->
+      <div class="displayDetails">
+        <h1>{{ tvDetailResult.original_name }} ({{ tvDetailResult.first_air_date | date:'yyyy' }})</h1>
+        <p class="tagline">{{ tvDetailResult.tagline }}</p>
+        <div></div>
+        <div class="genres" *ngFor="let genre of tvDetailResult.genres"><p>{{ genre.name }}</p></div>
+        <div class="displayTrailer">
+          <div class="vote-circle" [style.border]="getVoteCircleBorder()">
+            <p class="vote-average">{{ tvDetailResult.vote_average | number:'1.1-1' }}</p>
+          </div>
+          <div class="play-trailer">
+            <i class="fa-solid fa-play"></i>
+            <a href="https://www.themoviedb.org/video/play?key={{tvVideoResult}}" target="_blank">Watch Trailer</a>
+          </div>
+        </div>
+        <div class="overview">
+          <h1>Overview</h1>
+          <p>{{tvDetailResult.overview}}</p>
+        </div>
+        <div class="status">
+          <h2>Status: <span>{{tvDetailResult.status}}</span></h2>
+          <h2 class="p">First Date: <span>{{tvDetailResult.first_air_date}}</span></h2>
+          <h2>Seasons: <span>{{tvDetailResult.seasons[tvDetailResult.seasons.length - 1].season_number}}</span></h2>
+        </div>
+        <hr style="font-size: large; color: white;">
+        <div class="director">
+          <h2>Director: <span>{{tvDirectorResult}}</span> </h2>
+        </div>
+        <hr style="font-size: large; color: white;">
+        <div class="writer">
+          <h2>Writer: <span>{{tvWriterResult}}</span> </h2>
+        </div>
+        <hr style="font-size: large; color: white;">
+      </div>
+    </div>
+      <!-- Display TV Cast -->
+      <div class="cast">
+        <h1>Top Cast</h1>
+        <div class="castDetails">
+          <ng-container *ngFor="let cast of tvCastResult; let i = index">
+            <div class="castcont" *ngIf="i < 10">
+              <img class="imgcast" src="https://image.tmdb.org/t/p/original/{{ cast.profile_path}}" alt="{{cast.original_name}}">
+              <h3 class="text">{{cast.original_name}}</h3>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+
+    <!-- Display Similar TV -->
+    <div class="similartv">
+      <h1>Similar TV</h1>
+      <div class="row displaySimilartv">
+        <div class="col-lg-3" *ngFor="let tv of SimilarTV.results; let i = index">
+          <div *ngIf="i < 8">
+            <a href="https://image.tmdb.org/t/p/original/{{ tv.poster_path }}" [routerLink]="'/tv/' + tv.id"><img src="https://image.tmdb.org/t/p/original/{{ tv.poster_path }}"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

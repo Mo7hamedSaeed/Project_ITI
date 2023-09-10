@@ -1,0 +1,40 @@
+<div class="row mt-5 ">
+  <div class="col-lg-12" style="display: flex;">
+    <div class="row mt-5 w-50">
+      <input type="text" class="form-control" [(ngModel)]="SearchValue" />
+    </div>
+    <button
+      class="btn btn-outline-success my-2 my-sm-0 float-end" (click)="changeLanguage()"> {{ language }}
+    </button>
+  </div>
+</div>
+<!-- movies -->
+<div class="row mt-4 ">
+  <div
+    class="card col-lg-4  mt-3 mx-2"
+   *ngFor="let movie of allMovies"
+    style="width: 250px"
+  >
+    <img
+      src="{{ imagePath + movie.poster_path }}"
+      class="card-img-top"
+      alt="..."
+    />
+
+    <div class="card-body">
+      <h5 class="card-title">{{ movie.title }}</h5>
+
+      <button class="btn btn-primary" [routerLink]="'/movie/' + movie.id">Watch</button>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <mat-paginator
+              [length]="totalmovies"
+              [pageSize]="pageSize"
+              aria-label="Select page"
+              (page)="changePage($event)"
+              >
+  </mat-paginator>
+
+</div>

@@ -1,0 +1,40 @@
+<div class="carousel-section">
+  <div class="container">
+    <div class="title">
+      <h3>{{ title }}</h3>
+    </div>
+
+    <swiper-container
+      slides-per-view="4"
+      navigation="true"
+      speed="500"
+      mousewheel-force-to-axis="true"
+    >
+      <swiper-slide *ngFor="let item of items">
+        <div class="carouselItem">
+          <a [routerLink]="">
+            <div class="card">
+              <div class="poster-block">
+                <a [routerLink]="'/movie/' + item.id"><img
+                  src="{{ imagePath + item.poster_path }}"
+                  class="card-img-top"
+                  alt="..."
+                /></a>
+                <div class="circle-rating">
+                  <span>{{ item.vote_average.toFixed(1) }}</span>
+                </div>
+              </div>
+
+              <div class="card-body">
+                <h5 class="card-title">{{ item.title || item.name }}</h5>
+                <p>{{ item.release_date || item.first_air_date }}</p>
+              </div>
+            </div>
+          </a>
+        </div>
+      </swiper-slide>
+    </swiper-container>
+  </div>
+</div>
+
+

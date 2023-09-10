@@ -1,0 +1,68 @@
+<div class="center-container">
+<div class="container">
+  <!-- Display Movie Details -->
+  <div class="display" *ngIf="getMovieDetailResult.poster_path">
+    <img src="{{imagePath + getMovieDetailResult.poster_path }}">
+
+    <!-- Display more Movie Details -->
+    <div class="displayDetails">
+      <h1>{{ getMovieDetailResult.original_title }} ({{ getMovieDetailResult.release_date | date:'yyyy' }})</h1>
+      <p class="tagline">{{ getMovieDetailResult.tagline }}</p>
+      <div></div>
+      <div class="genres" *ngFor="let genre of getMovieDetailResult.genres"><p>{{ genre.name }}</p></div>
+      <div class="displayTrailer">
+        <div class="vote-circle" [style.border]="getVoteCircleBorder()">
+          <p class="vote-average">{{ getMovieDetailResult.vote_average | number:'1.1-1' }}</p>
+        </div>
+        <div class="play-trailer">
+          <i class="fa-solid fa-play"></i>
+          <a href="https://www.themoviedb.org/video/play?key={{ getMovieVideoResult }}" target="_blank">Watch Trailer</a>
+        </div>
+      </div>
+      <div class="overview">
+        <h1>Overview</h1>
+        <p>{{getMovieDetailResult.overview}}</p>
+      </div>
+      <div class="status">
+        <h2>Status: <span>{{getMovieDetailResult.status}}</span></h2>
+        <h2 class="p">Release Date: <span>{{getMovieDetailResult.release_date}}</span></h2>
+        <h2>Runtime: <span>{{getMovieDetailResult.runtime}}m</span></h2>
+      </div>
+      <hr style="font-size: large; color: white;">
+      <div class="director">
+        <h2>Director: <span>{{getMovieDirectorResult}}</span></h2>
+      </div>
+      <hr style="font-size: large; color: white;">
+      <div class="writer">
+        <h2>Writer: <span>{{getMovieWriterResult}}</span></h2>
+      </div>
+      <hr style="font-size: large; color: white;">
+    </div>
+  </div>
+
+  <!-- Display Movie Cast -->
+  <div class="cast">
+    <h1>Top Cast</h1>
+    <div class="castDetails" style="display: flex; margin: 25px 0 25px 0; justify-content: space-between;">
+      <ng-container *ngFor="let cast of getMovieCastResult; let i = index">
+        <div *ngIf="i < 10">
+          <img class="imgcast" src="https://image.tmdb.org/t/p/original/{{ cast.profile_path}}" alt="{{cast.original_name}}">
+          <h3 class="text">{{cast.original_name}}</h3>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  <!-- Display Similar Movies -->
+  <div class="similarmovie">
+    <h1>Similar Movies</h1>
+    <div class="row displaySimilarMovie">
+      <div class="col-lg-3" *ngFor="let m of getSimilarMovies.results; let i = index">
+        <div *ngIf="i < 8">
+          <a href="https://image.tmdb.org/t/p/original/{{ m.poster_path }}"  [routerLink]="'/movie/' + m.id"><img src="https://image.tmdb.org/t/p/original/{{ m.poster_path }}"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

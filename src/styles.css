@@ -1,0 +1,79 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+
+:root {
+  --main-bg: #04152d;
+  --color-but: linear-gradient(98.37deg, #f89e00 0.99%, #da2f68 100%);
+}
+
+* {
+  --webkit-box-sizing: border-box;
+  --moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Cairo', sans-serif;
+  background-color: var(--main-bg);
+  height: 100%;
+}
+
+
+.carouselItem {
+  padding: 7px;
+}
+.carouselItem .card {
+  border: 0;
+  background-color: transparent;
+  color: #fff;
+}
+
+.carouselItem .card img {
+  border-radius: var(--bs-card-border-radius);
+}
+.carouselItem .card .circle-rating {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #fff;
+  top: -30px;
+  left: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #f89e00;
+}
+.carouselItem .card .circle-rating span {
+  font-size: 17px;
+  font-weight: 700;
+  color: #04152d;
+}
+
+
+.carouselItem .card .card-body {
+  padding: 0;
+  /* margin-top: 30px; */
+}
+.carouselItem .card h5 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+@media (min-width: 768px) {
+  .carouselItem .card h5 {
+    font-size: 20px;
+  }
+}
+.carouselItem .card p {
+  font-size: 14px;
+  opacity: .5;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,0 +1,39 @@
+<div class="hero-banner" [ngClass]="valueComponent ? 'special' : ''">
+  <div class="image">
+    <img src="{{background()}}" alt="" />
+
+  </div>
+  <div class="content">
+    <div class="container">
+      <div class="title">
+        <h2>Welcome.</h2>
+        <p>Millions of movies, TV shows and people to discover. Explore now.</p>
+      </div>
+      <div class="search">
+        <input type="text" placeholder="Search for a movies or tv show......" [(ngModel)]="setSearchValue" />
+        <button type="submit">Search</button>
+      </div>
+    </div>
+  </div>
+  <div class="opacity-layer"></div>
+</div>
+
+<div *ngIf="valueComponent">
+  <app-carousel title="Trending Movies" [items]="trendingMovie" ></app-carousel>
+  <app-carousel title="Trending Tv" [items]="trendingTv"></app-carousel>
+  <app-carousel title="Top Rated Movies" [items]="topRatedMovies"></app-carousel>
+</div>
+
+<div *ngIf="!valueComponent">
+  <div class="row w-100 m-0">
+    <mat-paginator
+      [length]="total"
+      [pageSize]="pageSize"
+      aria-label="Select page"
+      (page)="changePage($event)"
+    >
+    </mat-paginator>
+  </div>
+
+  <app-search [items]="allShows"></app-search>
+</div>
